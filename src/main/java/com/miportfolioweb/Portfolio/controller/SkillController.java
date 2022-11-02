@@ -3,7 +3,7 @@ package com.miportfolioweb.Portfolio.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +23,6 @@ import com.miportfolioweb.Portfolio.service.interfaces.ISkillService;
  */
 @RestController
 @RequestMapping("/api/skill")
-@CrossOrigin(origins = "http://localhost:4200/")
 public class SkillController {
     @Autowired
     private ISkillService interSkill;
@@ -36,12 +35,14 @@ public class SkillController {
 
     // Lee los datos de una skill
     @GetMapping("/mostrar/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public Skill showSkill(@PathVariable Long id) {
         return interSkill.findSkill(id);
     }
 
     // Guardar datos de un item nuevo ante una petición POST
     @PostMapping("/crear")
+    @PreAuthorize("hasRole('ADMIN')")
     public boolean createSkill(@RequestBody Skill p) {
         interSkill.saveSkill(p);
         return true;
@@ -49,6 +50,7 @@ public class SkillController {
 
     // Eliminar datos ante una petición DELETE
     @DeleteMapping("/borrar/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public boolean deleteSkill(@PathVariable Long id) {
         interSkill.deleteSkill(id);
         return true;
@@ -56,6 +58,7 @@ public class SkillController {
 
     // Editar datos ante una petición PUT
     @PutMapping ("/editar/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public Skill editSkill(@PathVariable Long id, 
                                 @RequestBody Skill s) {
             return interSkill.editSkill(s.getId(), s.getTag(), s.getPercentage());

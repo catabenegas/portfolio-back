@@ -24,10 +24,6 @@ public class UsuarioService {
         return usuarioRepository.existsByNombreUsuario(nu);
     }
 
-    public  boolean existePorEmail(String email){
-        return usuarioRepository.existsByEmail(email);
-    }
-
     public void guardar(Usuario usuario){
         usuarioRepository.save(usuario);
     }

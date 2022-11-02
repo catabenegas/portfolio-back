@@ -3,7 +3,7 @@ package com.miportfolioweb.Portfolio.controller;
 import java.util.List;
  
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +23,6 @@ import com.miportfolioweb.Portfolio.service.interfaces.IProyectoService;
  */
 @RestController
 @RequestMapping("/api/proy")
-@CrossOrigin(origins = "http://localhost:4200/")
 public class ProyectoController {
     
     @Autowired
@@ -37,12 +36,14 @@ public class ProyectoController {
 
     // Lee los datos de UNA entrada
     @GetMapping("/mostrar/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public Proyecto showProyecto(@PathVariable Long id) {
         return interProyecto.findProyecto(id);
     }
 
     // Guardar datos de un item nuevo ante una petición POST
     @PostMapping("/crear")
+    @PreAuthorize("hasRole('ADMIN')")
     public boolean createProyecto(@RequestBody Proyecto p) {
         interProyecto.saveProyecto(p);
         return true;
@@ -50,6 +51,7 @@ public class ProyectoController {
 
     // Eliminar datos ante una petición DELETE
     @DeleteMapping("/borrar/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public boolean deleteProyecto(@PathVariable Long id) {
         interProyecto.deleteProyecto(id);
         return true;
@@ -57,6 +59,7 @@ public class ProyectoController {
 
     // Editar datos ante una petición PUT
     @PutMapping ("/editar/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public Proyecto editProyecto(@PathVariable Long id, 
                                 @RequestBody Proyecto p) {
             return interProyecto.editProyecto(p.getId(), p.getTitle(), p.getContent(), p.getLogo());

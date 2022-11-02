@@ -3,7 +3,7 @@ package com.miportfolioweb.Portfolio.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +23,6 @@ import com.miportfolioweb.Portfolio.service.interfaces.IExperienciaService;
  */
 @RestController
 @RequestMapping("/api/exp")
-@CrossOrigin(origins = "http://localhost:4200/")
 public class ExperienciaController {    
     @Autowired
     private IExperienciaService interExperiencia;
@@ -36,12 +35,14 @@ public class ExperienciaController {
 
     // Lee los datos de UNA entrada
     @GetMapping("/mostrar/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public Experiencia showExperiencia(@PathVariable Long id) {
         return interExperiencia.findExperiencia(id);
     }
 
     // Guardar datos de un item nuevo ante una petición POST
     @PostMapping("/crear")
+    @PreAuthorize("hasRole('ADMIN')")
     public boolean createExperiencia(@RequestBody Experiencia p) {
         interExperiencia.saveExperiencia(p);
         return true;
@@ -49,6 +50,7 @@ public class ExperienciaController {
 
     // Eliminar datos ante una petición DELETE
     @DeleteMapping("/borrar/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public boolean deleteExperiencia(@PathVariable Long id) {
         interExperiencia.deleteExperiencia(id);
         return true;
@@ -56,6 +58,7 @@ public class ExperienciaController {
  
     // Editar datos ante una petición PUT
     @PutMapping ("/editar/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public Experiencia editExperiencia(@PathVariable Long id, 
                                 @RequestBody Experiencia e) {
             return interExperiencia.editExperiencia(e.getId(), e.getTitle(), e.getContent(), e.getLogo());

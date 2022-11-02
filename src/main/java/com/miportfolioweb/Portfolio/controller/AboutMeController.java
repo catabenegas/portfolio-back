@@ -1,7 +1,7 @@
 package com.miportfolioweb.Portfolio.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +21,6 @@ import com.miportfolioweb.Portfolio.service.interfaces.IAboutMeService;
  */
 @RestController
 @RequestMapping("/api/aboutme")
-@CrossOrigin(origins = "http://localhost:4200/")
 public class AboutMeController {
     
     @Autowired
@@ -35,6 +34,7 @@ public class AboutMeController {
 
     // Guardar datos de un aboutme nuevo ante una petición POST
     @PostMapping("/crear")
+    @PreAuthorize("hasRole('ADMIN')")
     public String createAboutMe(@RequestBody AboutMe p) {
         interAboutMe.saveAboutMe(p);
         return "Se creó correctamente";
@@ -42,6 +42,7 @@ public class AboutMeController {
 
     // Eliminar datos ante una petición DELETE 
     @DeleteMapping("/borrar/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public String deleteAboutMe(@PathVariable Integer id) {
         interAboutMe.deleteAboutMe(id);
         return "Se eliminó correctamente";
@@ -49,6 +50,7 @@ public class AboutMeController {
 
     // Editar datos ante una petición PUT
     @PutMapping ("/editar/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public AboutMe editAboutMe(@PathVariable Integer id, 
                                 @RequestBody String txt) {
             return interAboutMe.editAboutMe(id, txt);
