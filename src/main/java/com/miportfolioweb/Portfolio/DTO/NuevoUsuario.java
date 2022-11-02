@@ -5,7 +5,6 @@ import java.util.Set;
 // Clase que sirve para crear un usuario nuevo
 public class NuevoUsuario {
     private String nombre;
-    private String email;
     private String nombreUsuario;
     private String password;
 
@@ -17,14 +16,6 @@ public class NuevoUsuario {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getNombreUsuario() {

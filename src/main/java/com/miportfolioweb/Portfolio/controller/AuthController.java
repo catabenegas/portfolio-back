@@ -52,7 +52,7 @@ public class AuthController {
         if(usuarioService.existePorNombre(nuevoUsuario.getNombreUsuario()))
             return new ResponseEntity<String>("Ese nombre ya existe", HttpStatus.BAD_REQUEST);
         Usuario usuario =
-                new Usuario(nuevoUsuario.getNombre(), nuevoUsuario.getNombreUsuario(), nuevoUsuario.getEmail(),
+                new Usuario(nuevoUsuario.getNombre(), nuevoUsuario.getNombreUsuario(),
                         passwordEncoder.encode(nuevoUsuario.getPassword()));
         Set<String> rolesStr = nuevoUsuario.getRoles();
         Set<Rol> roles = new HashSet<>();
