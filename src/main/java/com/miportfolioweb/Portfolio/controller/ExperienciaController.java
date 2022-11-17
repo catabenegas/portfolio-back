@@ -22,7 +22,7 @@ import com.miportfolioweb.Portfolio.service.interfaces.IExperienciaService;
  * responde a ellas con la Interfaz
  * IExperienciaService
  */
-@CrossOrigin(origins = "http://miportfolio-8701f.web.app")
+@CrossOrigin(origins = "https://miportfolio-8701f.web.app")
 @RestController
 @RequestMapping("/api/exp")
 public class ExperienciaController {    

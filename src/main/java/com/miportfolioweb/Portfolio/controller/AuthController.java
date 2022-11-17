@@ -29,7 +29,7 @@ import com.miportfolioweb.Portfolio.service.UsuarioService;
 import java.util.HashSet;
 import java.util.Set;
 
-@CrossOrigin(origins = "http://miportfolio-8701f.web.app")
+@CrossOrigin(origins = "https://miportfolio-8701f.web.app")
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {

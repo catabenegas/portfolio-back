@@ -22,7 +22,7 @@ import com.miportfolioweb.Portfolio.service.interfaces.IEducacionService;
  * responde a ellas con la Interfaz
  * IEducacionService
  */ 
-@CrossOrigin(origins = "http://miportfolio-8701f.web.app")
+@CrossOrigin(origins = "https://miportfolio-8701f.web.app")
 @RestController
 @RequestMapping("/api/edu")
 public class EducacionController {    

@@ -20,7 +20,7 @@ import com.miportfolioweb.Portfolio.service.interfaces.IAboutMeService;
  * responde a ellas con la Interfaz
  * IAboutMeService
  */
-@CrossOrigin(origins = "http://miportfolio-8701f.web.app")
+@CrossOrigin(origins = "https://miportfolio-8701f.web.app")
 @RestController
 @RequestMapping("/api/aboutme")
 public class AboutMeController {

@@ -22,7 +22,7 @@ import com.miportfolioweb.Portfolio.service.interfaces.ISkillService;
  * responde a ellas con la Interfaz
  * ISkillService
  */
-@CrossOrigin(origins = "http://miportfolio-8701f.web.app")
+@CrossOrigin(origins = "https://miportfolio-8701f.web.app")
 @RestController
 @RequestMapping("/api/skill")
 public class SkillController {
