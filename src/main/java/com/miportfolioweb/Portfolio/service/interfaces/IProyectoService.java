@@ -22,6 +22,6 @@ public interface IProyectoService {
     public Proyecto findProyecto (Long id);
 
     // Editar item de educacion
-    public Proyecto editProyecto (Long id, String title, String content, Long img);
+    public Proyecto editProyecto (Long id, String title, String content, String urlImg);
 }
 

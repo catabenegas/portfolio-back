@@ -17,5 +17,5 @@ public class Experiencia {
     private Long id;
     private String title;
     private String content;
-    private Long logo; 
+    private String logo; 
 }

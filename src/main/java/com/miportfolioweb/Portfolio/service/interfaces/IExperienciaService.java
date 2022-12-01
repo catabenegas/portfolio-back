@@ -22,5 +22,5 @@ public interface IExperienciaService {
     public Experiencia findExperiencia (Long id);
 
     // Editar item de experiencia
-    public Experiencia editExperiencia (Long id, String title, String content, Long img);
+    public Experiencia editExperiencia (Long id, String title, String content, String urlImg);
 }

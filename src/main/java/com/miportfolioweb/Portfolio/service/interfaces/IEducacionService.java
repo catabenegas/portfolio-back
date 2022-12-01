@@ -22,5 +22,5 @@ public interface IEducacionService {
     public Educacion findEducacion (Long id);
 
     // Editar item de educacion
-    public Educacion editEducacion (Long id, String title, String content, Long img);
+    public Educacion editEducacion (Long id, String title, String content, String urlImg);
 }

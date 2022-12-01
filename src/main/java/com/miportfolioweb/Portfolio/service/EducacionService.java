@@ -41,12 +41,12 @@ public class EducacionService implements IEducacionService {
     }
 
     @Override
-    public Educacion editEducacion(Long id, String title, String content, Long img) {
+    public Educacion editEducacion(Long id, String title, String content, String urlImg) {
         Educacion edu = this.findEducacion(id);
 
         edu.setTitle(title);
         edu.setContent(content);
-        edu.setLogo(img);
+        edu.setLogo(urlImg);
         this.saveEducacion(edu);
 
         return edu;

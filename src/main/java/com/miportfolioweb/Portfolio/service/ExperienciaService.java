@@ -41,12 +41,12 @@ public class ExperienciaService implements IExperienciaService {
     }
 
     @Override
-    public Experiencia editExperiencia(Long id, String title, String content, Long img) {
+    public Experiencia editExperiencia(Long id, String title, String content, String urlImg) {
         Experiencia exp = this.findExperiencia(id);
 
         exp.setTitle(title);
         exp.setContent(content);
-        exp.setLogo(img);
+        exp.setLogo(urlImg);
         this.saveExperiencia(exp);
 
         return exp;

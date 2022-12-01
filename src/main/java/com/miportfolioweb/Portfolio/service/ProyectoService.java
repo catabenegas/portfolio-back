@@ -41,12 +41,12 @@ public class ProyectoService implements IProyectoService {
     }
 
     @Override
-    public Proyecto editProyecto(Long id, String title, String content, Long img) {
+    public Proyecto editProyecto(Long id, String title, String content, String urlImg) {
         Proyecto proyecto = this.findProyecto(id);
 
         proyecto.setTitle(title);
         proyecto.setContent(content);
-        proyecto.setLogo(img);
+        proyecto.setLogo(urlImg);
         this.saveProyecto(proyecto);
 
         return proyecto;
