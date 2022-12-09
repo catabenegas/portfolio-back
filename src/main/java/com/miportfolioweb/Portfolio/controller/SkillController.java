@@ -34,7 +34,7 @@ public class SkillController {
     public List<Skill> getSkill() {
         return interSkill.getSkill();
     }
-
+ 
     // Lee los datos de una skill
     @GetMapping("/mostrar/{id}")
     @PreAuthorize("hasRole('ADMIN')")

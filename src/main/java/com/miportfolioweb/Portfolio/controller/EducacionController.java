@@ -59,7 +59,6 @@ public class EducacionController {
     }
 
     // Editar datos ante una petición PUT
-    // CAMBIAR A BODY
     @PutMapping ("/editar/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public Educacion editEducacion(@PathVariable Long id, 

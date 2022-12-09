@@ -67,7 +67,7 @@ public class AuthController {
                 default:
                     Rol rolUser = rolService.getByRolNombre(RolNombre.ROLE_USER).get();
                     roles.add(rolUser);
-            }
+            } 
         }
         usuario.setRoles(roles);
         usuarioService.guardar(usuario);

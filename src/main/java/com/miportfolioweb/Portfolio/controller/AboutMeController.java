@@ -49,7 +49,7 @@ public class AboutMeController {
         interAboutMe.deleteAboutMe(id);
         return "Se eliminó correctamente";
     }
-
+ 
     // Editar datos ante una petición PUT
     @PutMapping ("/editar/{id}")
     @PreAuthorize("hasRole('ADMIN')")

@@ -58,7 +58,7 @@ public class ProyectoController {
         interProyecto.deleteProyecto(id);
         return true;
     }
-
+ 
     // Editar datos ante una petición PUT
     @PutMapping ("/editar/{id}")
     @PreAuthorize("hasRole('ADMIN')")

@@ -17,7 +17,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.miportfolioweb.Portfolio.security.JWT.JwtEntryPoint;
 import com.miportfolioweb.Portfolio.security.JWT.JwtTokenFilter;
 import com.miportfolioweb.Portfolio.service.UserDetailsServiceImpl;
-
+ 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
